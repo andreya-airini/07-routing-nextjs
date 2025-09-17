@@ -1,8 +1,6 @@
-// app/notes/filter/layout.tsx
-
 type Props = {
   children: React.ReactNode;
-  sidebar: React.ReactNode; // додаємо паралельний сегмент
+  sidebar: React.ReactNode;
 };
 
 const NotesLayout = ({ children, sidebar }: Props) => {

@@ -11,7 +11,7 @@ interface NoteDetailsPageProps {
 export default async function NoteDetailsPage({
   params,
 }: NoteDetailsPageProps) {
-  const { id } = await params; // ⬅️ треба чекати
+  const { id } = await params;
   if (!id) notFound();
 
   const queryClient = new QueryClient();

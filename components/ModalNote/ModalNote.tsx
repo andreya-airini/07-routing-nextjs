@@ -1,26 +1,19 @@
 "use client";
 import { createPortal } from "react-dom";
 import css from "./ModalNote.module.css";
-import { type ReactNode } from "react";
-import { useRouter } from "next/navigation";
 
-interface ModalProps {
-  backPage: string;
-  children: ReactNode;
-}
+export type ModalProps = {
+  children: React.ReactNode;
+  backPage?: string;
+  onClose: () => void;
+};
 
-export default function ModalNote({ children, backPage }: ModalProps) {
-  const router = useRouter();
-
-  const close = () => router.back();
-
+export default function ModalNote({ children, backPage, onClose }: ModalProps) {
   const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
-      close();
+      onClose();
     }
   };
-
-  //console.log("modal note")
 
   return createPortal(
     <div
@@ -30,7 +23,7 @@ export default function ModalNote({ children, backPage }: ModalProps) {
       onClick={handleBackdropClick}
     >
       <div className={css.modal}>
-        <button className={css.backBtn} onClick={close}>{`< Go back to ${
+        <button className={css.backBtn} onClick={onClose}>{`< Go back to ${
           backPage === "All" ? "All notes" : backPage
         }`}</button>
         {children}

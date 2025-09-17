@@ -1,36 +1,39 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams, useSearchParams, useRouter } from "next/navigation";
 import { fetchNoteById } from "@/lib/api";
 import css from "./NotePreview.module.css";
 import Loading from "@/app/loading";
 import ModalNote from "@/components/ModalNote/ModalNote";
 
 type NotePreviewProps = {
-  Noteid: string;
+  noteId?: string;
 };
 
-const NotePreviewClient = ({ Noteid }: NotePreviewProps) => {
-  //const NotePreviewClient = () => {
-  const { id } = useParams<{ id: string }>();
+const NotePreviewClient = ({ noteId }: NotePreviewProps) => {
+  const params = useParams<{ id: string }>();
+  const id = noteId ?? params.id;
 
   const searchParams = useSearchParams();
-  const from = searchParams.get("from"); // твій slug
+  const from = searchParams.get("from");
+  const router = useRouter();
 
-  //console.log("NotePreview", id)
   const {
     data: note,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["notesQuery", id],
+    queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
     refetchOnMount: false,
   });
 
+  const handleClose = () => router.back();
+
   if (isLoading) return <Loading />;
-  if (!note) return <p>Note not found</p>; // Додаємо перевірку
+  if (error) return <p>Error loading note</p>;
+  if (!note) return <p>Note not found</p>;
 
   const dateFormat: Intl.DateTimeFormatOptions = {
     day: "2-digit",
@@ -59,7 +62,7 @@ const NotePreviewClient = ({ Noteid }: NotePreviewProps) => {
     : `Created at: ${createdAt}`;
 
   return (
-    <ModalNote backPage={from ? from : "All notes"}>
+    <ModalNote onClose={handleClose} backPage={from ? from : "All notes"}>
       <div className={css.container}>
         <div className={css.item}>
           <div className={css.header}>

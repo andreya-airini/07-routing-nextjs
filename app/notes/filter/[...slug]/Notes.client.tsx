@@ -1,35 +1,3 @@
-// "use client";
-// import { useState } from "react";
-// import { useQuery } from "@tanstack/react-query";
-// import { fetchNotes } from "@/lib/api";
-// import NoteList from "@/components/NoteList/NoteList";
-// import SearchBox from "@/components/SearchBox/SearchBox";
-
-// type Props = {
-//   tag?: string;
-// };
-
-// export default function NotesClient({ tag }: Props) {
-//   const [page, setPage] = useState(1);
-
-//   const { data, isLoading, isError } = useQuery({
-//     queryKey: ["notes", page, tag],
-//     queryFn: () => fetchNotes(page, undefined, tag),
-//   });
-
-//   if (isLoading) return <p>Loading...</p>;
-//   if (isError) return <p>Error loading notes</p>;
-
-//   return (
-//     <>
-//       {data?.notes.map((note) => (
-//         <NoteList key={note.id} notes={[note]} />
-//       ))}
-//     </>
-//   );
-// }
-
-// app/notes/filter/[...slug]/Notes.client.tsx
 "use client";
 
 import React from "react";

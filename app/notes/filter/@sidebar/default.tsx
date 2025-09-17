@@ -1,7 +1,7 @@
 import Link from "next/link";
 import css from "./SidebarNotes.module.css";
 
-const tags = ["Work", "Personal", "Todo"]; // Можна отримувати динамічно
+const tags = ["Work", "Personal", "Todo", "Meeting", "Shopping"];
 
 const SidebarNotes = () => {
   return (
@@ -9,7 +9,7 @@ const SidebarNotes = () => {
       <ul className={css.menuList}>
         {/* Посилання на всі нотатки */}
         <li className={css.menuItem}>
-          <Link href="/notes/filter/all" className={css.menuLink}>
+          <Link href="/notes/filter/All" className={css.menuLink}>
             All notes
           </Link>
         </li>
