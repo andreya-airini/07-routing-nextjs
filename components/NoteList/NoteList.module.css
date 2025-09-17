@@ -1,6 +1,6 @@
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* 4 нотатки в ряд */
   gap: 16px;
   padding: 0;
   margin: 0;
@@ -9,14 +9,15 @@
 
 .listItem {
   background-color: #ffffff;
-  border: 1px solid #dee2e6;
+  border: 1.5px solid #800020;
   border-radius: 8px;
   padding: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 5px #800020;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 180px;
+  width: 250px;
 }
 
 .title {
@@ -43,7 +44,7 @@
   padding: 6px 12px;
   font-size: 14px;
   color: #fff;
-  background-color: #dc3545;
+  background-color: #800020;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -51,7 +52,7 @@
 }
 
 .button:hover {
-  background-color: #bb2d3b;
+  background-color: #351e1c;
 }
 
 .footer {
@@ -65,12 +66,34 @@
   display: inline-block;
   padding: 4px 8px;
   font-size: 12px;
-  color: #0d6efd;
-  background-color: #e7f1ff;
+  color: #b6d4fe;
+  background-color: #38506a;
   border: 1px solid #b6d4fe;
   border-radius: 12px;
   max-width: 100px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.viewDetails {
+  font-size: 14px;
+  color: #fff;
+  background-color: #333;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.viewDetails:hover {
+  background-color: #555;
+}
+
+.btn_s {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 5px;
 }

@@ -1,3 +1,5 @@
+// components/SearchBox/SearchBox.tsx
+
 import { useState } from "react";
 import { toast } from "react-toastify";
 import css from "./SearchBox.module.css";

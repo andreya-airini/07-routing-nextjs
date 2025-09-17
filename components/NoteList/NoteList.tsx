@@ -23,15 +23,16 @@ export default function NoteList({ notes }: NoteListProps) {
           <p className={css.content}>{content}</p>
           <span className={css.tag}>{tag}</span>
 
-          {/* Посилання на сторінку деталей нотатки */}
-          <Link href={`/notes/${id}`} className={css.viewDetails}>
-            View details
-          </Link>
-
-          {/* Кнопка видалення */}
-          <button className={css.button} onClick={() => mutation.mutate(id)}>
-            Delete
-          </button>
+          <div className={css.btn_s}>
+            {/* Посилання на сторінку деталей нотатки */}
+            <Link href={`/notes/${id}`} className={css.viewDetails}>
+              View details
+            </Link>
+            {/* Кнопка видалення */}
+            <button className={css.button} onClick={() => mutation.mutate(id)}>
+              Delete
+            </button>
+          </div>
         </li>
       ))}
     </ul>

@@ -7,12 +7,17 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 export const metadata: Metadata = {
   title: "NoteHub",
   description: "A simple Next.js notes application",
+  icons: {
+    icon: "favicon.ico",
+  },
 };
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -21,7 +26,10 @@ export default function RootLayout({
           <div className="layout">
             <div id="modal-root"></div>
             <Header />
-            <main className="content">{children}</main>
+            <main className="content">
+              {children}
+              {modal}
+            </main>
             <Footer />
           </div>
         </TanStackProvider>
