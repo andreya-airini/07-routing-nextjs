@@ -22,7 +22,7 @@ export default function TagsMenu() {
         <ul className={css.menuList}>
           <li className={css.menuItem}>
             <Link
-              href="/notes/filter/All"
+              href="/notes/filter/all"
               className={css.menuLink}
               onClick={handleClose}
             >

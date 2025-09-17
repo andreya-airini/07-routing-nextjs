@@ -9,7 +9,7 @@ const SidebarNotes = () => {
       <ul className={css.menuList}>
         {/* Посилання на всі нотатки */}
         <li className={css.menuItem}>
-          <Link href="/notes/filter/All" className={css.menuLink}>
+          <Link href="/notes/filter/all" className={css.menuLink}>
             All notes
           </Link>
         </li>
