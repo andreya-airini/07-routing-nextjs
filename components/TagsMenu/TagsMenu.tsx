@@ -9,7 +9,6 @@ export default function TagsMenu() {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  // Функція для закриття меню
   const handleClose = () => setIsOpen(false);
 
   return (

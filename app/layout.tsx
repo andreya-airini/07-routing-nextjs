@@ -24,7 +24,6 @@ export default function RootLayout({
       <body>
         <TanStackProvider>
           <div className="layout">
-            <div id="modal-root"></div>
             <Header />
             <main className="content">
               {children}

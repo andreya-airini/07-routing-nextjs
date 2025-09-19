@@ -22,7 +22,6 @@ export default function Modal({ onClose, children }: Props) {
     document.addEventListener("keydown", onKeyDown);
     document.body.style.overflow = "hidden";
 
-    // Фокус на першому input, textarea або select у модалці
     const firstInput = document.querySelector(
       "input, textarea, select"
     ) as HTMLElement;
